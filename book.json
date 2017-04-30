@@ -1,5 +1,5 @@
 {
-    "plugins": ["uml"],
+    "plugins": ["uml@^0.1.6"],
     "pluginsConfig": {
         "uml": {
             "format": "svg",
