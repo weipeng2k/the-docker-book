@@ -1,15 +1,13 @@
+## 简介
 
-```uml
-@startuml
+虽然隔离技术不彻底，但是被广泛的运行在超大规模的多租户服务部署，轻量级沙盒以及对安全环境要求并不高的隔离环境中。
 
-    Class Stage
-    Class Timeout {
-        +constructor:function(cfg)
-        +timeout:function(ctx)
-        +overdue:function(ctx)
-        +stage: Stage
-    }
-     Stage <|-- Timeout
+> 大规模服务部署
 
-@enduml
-```
+> 沙盒环境
+
+> 有安全保证的环境
+
+> 这些环境在内部网络的保护下，安全不是重点考虑的前提下，资源利用将成为主要矛盾
+
+容器技术是精益技术，因为容器需要的开销有限，由于不需要传统虚拟化所依赖的模拟层（emulation layer）和管理层（hypervisor layer），而是使用了操作系统的系统调用，从而降低了容器的开销，进而增加了部署密度。
