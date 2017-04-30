@@ -3,7 +3,7 @@
     "pluginsConfig": {
         "uml": {
             format: 'svg',
-            nailgun: false
+            nailgun: 'false'
         }
     }
 }
