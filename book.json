@@ -2,8 +2,8 @@
     "plugins": ["uml"],
     "pluginsConfig": {
         "uml": {
-            format: 'svg',
-            nailgun: 'false'
+            "format": "svg",
+            "nailgun": false
         }
     }
 }
