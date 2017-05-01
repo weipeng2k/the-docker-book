@@ -10,8 +10,23 @@ Docker的组件分为：
 基本架构如下：
 
 <center>
-![](http://www.plantuml.com/plantuml/svg/POwx3O0m34JxJE6AZWKeQA2XPOCeM10Hsr481TlpaO10IZ-zkxCHyiB84LenCuR6sUDGveTRZIISu1v7kyImPMP7UiICDi9HMyQWLBe3PLb_5g02GuFweDTvMWwDD9z3zn-9TNtm6bdN4wd0hyuLVbqci6Te1m00)
+<img src="http://www.plantuml.com/plantuml/svg/POwx3O0m34JxJE6AZWKeQA2XPOCeM10Hsr481TlpaO10IZ-zkxCHyiB84LenCuR6sUDGveTRZIISu1v7kyImPMP7UiICDi9HMyQWLBe3PLb_5g02GuFweDTvMWwDD9z3zn-9TNtm6bdN4wd0hyuLVbqci6Te1m00" />
 </center>
+
+```sh
+@startuml
+component DockerClient
+component DockerDaemon
+component Registry
+component DockerImage
+component DockerContainer
+
+DockerClient --> DockerDaemon : cmd
+DockerDaemon --> DockerContainer : manage
+Registry --> DockerImage : manage
+DockerDaemon --> Registry : pull&push image
+@enduml
+```
 
 镜像是基于联合文件系统的一种层式结构，由一系列指令一步一步构建出来。可以把镜像理解为容器的“源代码”。
 
