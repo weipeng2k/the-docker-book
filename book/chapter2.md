@@ -1,0 +1,40 @@
+# 安装Docker
+
+> Docker支持大多数的平台，但是对Linux平台支持较好，推荐使用Ubuntu或者RHEL，后面的例子都是用的是Ubuntu
+
+> Ubuntu，有奔头
+
+## Ubuntu下安装DockerCE
+
+一般使用`16.04 LTS`作为基准环境，这个版本推出了一年多了。由于Docker在最近做了调整，分化除了**DockerCE**和**DockerEE**，两个分支，我们使用免费的**DockerEE**
+
+> 版本分化，价值体现，收费先行，建设生态，sun微电子，前车之鉴
+
+> 官方的Docker进行镜像下载，随着阿里云成为Docker的官方伙伴，而变得快了？至少给我的下载感觉提升了不少。
+
+* 设置仓库
+
+  * 先安装一些软件<br>
+`sudo apt-get -y install apt-transport-https ca-certificates curl`
+  * 添加仓库key<br>
+`curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -`
+  * 添加仓库<br>
+`sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"`
+  * 更新仓库<br>
+`sudo apt-get update`
+
+> `lsb_release -cs`可以看ubuntu发行版的代号。
+
+* 安装DockerCE
+
+`sudo apt-get install docker-ce`
+
+* 验证
+
+`sudo docker run hello-world`
+
+> 该过程会联通Registry下载hello-world，并启动，最终输出到你的终端。
+
+## Docker守护进程
+
+Docker以`root`权限运行守护进程，只有使用`root`，才能够处理普通用户无法完成的操作，比如：挂载文件系统。守护进程监听`/var/run/docker.sock`这个Unix套接字文件，来获取来自客户端的Docker请求。

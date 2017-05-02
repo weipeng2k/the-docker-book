@@ -1,0 +1,13 @@
+{
+    "plugins": [
+        "algolia"
+    ],
+    "pluginsConfig": {
+        "algolia": {
+            "index": "algorithm",
+            "applicationID": "9YBMOZR89J",
+            "publicKey": "5860a3e55ee72831917b1b9e2a4649ca",
+            "freeAccount": "true"
+        }
+    }
+}
