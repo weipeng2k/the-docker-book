@@ -38,3 +38,18 @@
 ## Docker守护进程
 
 Docker以`root`权限运行守护进程，只有使用`root`，才能够处理普通用户无法完成的操作，比如：挂载文件系统。守护进程监听`/var/run/docker.sock`这个Unix套接字文件，来获取来自客户端的Docker请求。
+
+可以运行`sudo service docker stop`，停止当前的docker守护进程，然后使用`sudo dockerd -H tcp://0.0.0.0:2375` 来完成守护进程的启动。默认情况下，Docker的客户端与DockerDaemon之间的通信是不进行认证的。
+
+> 这时，docker守护进程将会在监听本机所有网卡上的2375端口，用来响应命令。
+
+> 回顾一下之前提到的DockerDaemon的架构，它处于架构的正中心，负责响应命令，完成镜像的下载、构建以及容器的创建工作。
+
+* 启动DockerDaemon<br>
+  `sudo service docker start`
+* 重启DockerDaemon<br>
+  `sudo service docker restart`
+* 停止DockerDaemon<br>
+  `sudo service docker stop`
+
+> service实际上是运行在`/etc/init.d`中的`docker`脚本，其中必须要支持`start`、`restart`、`stop`和`status`。
