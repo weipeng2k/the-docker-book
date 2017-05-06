@@ -41,6 +41,8 @@ Docker以`root`权限运行守护进程，只有使用`root`，才能够处理�
 
 可以运行`sudo service docker stop`，停止当前的docker守护进程，然后使用`sudo dockerd -H tcp://0.0.0.0:2375` 来完成守护进程的启动。默认情况下，Docker的客户端与DockerDaemon之间的通信是不进行认证的。
 
+> 早期Docker是通过`sudo docker -d -H tcp:0.0.0.0:2375`或者`sudo docker daemon -H tcp:0.0.0.0:2375`来完成
+
 > 这时，docker守护进程将会在监听本机所有网卡上的2375端口，用来响应命令。
 
 > 回顾一下之前提到的DockerDaemon的架构，它处于架构的正中心，负责响应命令，完成镜像的下载、构建以及容器的创建工作。
