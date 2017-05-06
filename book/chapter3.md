@@ -54,3 +54,11 @@ Live Restore Enabled: false
 > 该命令会返回所有容器和镜像的数量
 
 > 存储器的驱动等配置信息
+
+## 运行容器
+
+使用`sudo docker run -i -t ubuntu /bin/bash`，`docker run`命令提供了Docker容器的创建到启动的功能。
+
+> `sudo docker run -i -t ubuntu:16.04 /bin/bash`，可以选择启动ubuntu镜像中tag为16.04的版本。
+
+`-i`标志，保证容器STDIN是开启的，`-t`使得创建的容器分配了一个tty终端
