@@ -131,7 +131,7 @@ lo        Link encap:Local Loopback
 使用`sudo docker ps`可以查看运行的容器，如果容器已经停止了将不会展示，但是可以通过`sudo docker ps -a`查看所有的容器。
 
 ```sh
-weipeng2k@weipeng2k-workstation:~/Documents/workspace/the-docker-book$ sudo docker ps -a
+$ sudo docker ps -a
 CONTAINER ID        IMAGE                    COMMAND             CREATED             STATUS                      PORTS               NAMES
 34fe3f085d18        weipeng2k/ubuntu:16.04   "/bin/bash"         38 minutes ago      Exited (0) 15 minutes ago                       vigilant_shannon
 61fba4e07526        ubuntu                   "/bin/bash"         About an hour ago   Exited (0) 50 minutes ago                       laughing_rosalind
@@ -146,9 +146,9 @@ CONTAINER ID        IMAGE                    COMMAND             CREATED        
 之前通过`docker ps`看到的的列表，`NAMES`属性非常怪异，因为是Docker随机生成的，如果我们需要指定名称可以通过`sudo docker --name container_name -i -t weipeng2k/ubuntu:16.04 uname -a`来进行。
 
 ```sh
-weipeng2k@weipeng2k-workstation:~/Documents/workspace/the-docker-book$ sudo docker run --name container_name weipeng2k/ubuntu:16.04 uname -a
+$ sudo docker run --name container_name weipeng2k/ubuntu:16.04 uname -a
 Linux 91b9e178ca14 4.8.0-49-generic #52~16.04.1-Ubuntu SMP Thu Apr 20 10:55:59 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
-weipeng2k@weipeng2k-workstation:~/Documents/workspace/the-docker-book$ sudo docker ps -a
+$ sudo docker ps -a
 CONTAINER ID        IMAGE                    COMMAND             CREATED             STATUS                      PORTS               NAMES
 91b9e178ca14        weipeng2k/ubuntu:16.04   "uname -a"          16 seconds ago      Exited (0) 16 seconds ago                       container_name
 34fe3f085d18        weipeng2k/ubuntu:16.04   "/bin/bash"         44 minutes ago      Exited (0) 21 minutes ago                       vigilant_shannon
@@ -163,7 +163,7 @@ CONTAINER ID        IMAGE                    COMMAND             CREATED        
 Docker容器在命令执行完毕后，就会自动退出，如果我们想重新启动容器，可以通过`sudo docker start container_name`来完成容器的再启动。
 
 ```sh
-weipeng2k@weipeng2k-workstation:~/Documents/workspace/the-docker-book$ sudo docker start -i container_name
+$ sudo docker start -i container_name
 Linux 91b9e178ca14 4.8.0-49-generic #52~16.04.1-Ubuntu SMP Thu Apr 20 10:55:59 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
 ```
 
@@ -184,7 +184,7 @@ Linux 91b9e178ca14 4.8.0-49-generic #52~16.04.1-Ubuntu SMP Thu Apr 20 10:55:59 U
 我们先用非daemon方式启动，可以看到它在前台启动，如果使用`ctrl + C`，将退出当前进程。
 
 ```sh
-weipeng2k@weipeng2k-workstation:~/Documents/workspace/the-docker-book/src/chapter3/daemon_echo$ sudo docker run --name daemon_echo2 weipeng2k/daemon_echo
+$ sudo docker run --name daemon_echo2 weipeng2k/daemon_echo
 hello world.
 hello world.
 hello world.
@@ -206,7 +206,7 @@ hello world.
 可以通过`sudo docker top daemon_echo`来查看容器内的进程。
 
 ```sh
-weipeng2k@weipeng2k-workstation:~/Documents/workspace/the-docker-book/src/chapter3/daemon_echo$ sudo docker top daemon_echo
+$ sudo docker top daemon_echo
 UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
 root                18408               18390               0                   22:50               ?                   00:00:00            java Test
 ```
@@ -214,7 +214,7 @@ root                18408               18390               0                   
 可以通过`sudo docker exec` 来执行命令，比如：
 
 ```sh
-weipeng2k@weipeng2k-workstation:~/Documents/workspace/the-docker-book/src/chapter3/daemon_echo$ sudo docker exec -i -t daemon_echo /bin/bash
+$ sudo docker exec -i -t daemon_echo /bin/bash
 root@94df9b5f5e8b:~/app# ls
 Test.class  Test.java
 root@94df9b5f5e8b:~/app# jps
@@ -231,7 +231,7 @@ root@94df9b5f5e8b:~/app# jps
 可以通过`sudo docker inspect`来查看容器的详细信息。
 
 ```sh
-weipeng2k@weipeng2k-workstation:~$ sudo docker inspect daemon_echo
+$ sudo docker inspect daemon_echo
 [
     {
         "Id": "94df9b5f5e8ba82900f9a01bca0e9e66815cdd01ca054421ce943590a58e4357",
@@ -410,7 +410,7 @@ weipeng2k@weipeng2k-workstation:~$ sudo docker inspect daemon_echo
 删除一个容器，可以使用`sudo docker rm `来进行，比如：
 
 ```sh
-weipeng2k@weipeng2k-workstation:~$ sudo docker rm daemon_echo
+$ sudo docker rm daemon_echo
 daemon_echo
 ```
 

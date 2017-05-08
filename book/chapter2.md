@@ -6,7 +6,7 @@
 
 ## Ubuntu下安装DockerCE
 
-一般使用`16.04 LTS`作为基准环境，这个版本推出了一年多了。由于Docker在最近做了调整，分化除了**DockerCE**和**DockerEE**，两个分支，我们使用免费的**DockerEE**
+一般使用`16.04 LTS`作为基准环境，这个版本推出了一年多了。由于Docker在最近做了调整，分化除了**DockerCE**和**DockerEE**，两个分支，我们使用免费的**DockerCE**
 
 > 版本分化，价值体现，收费先行，建设生态，sun微电子，前车之鉴
 
