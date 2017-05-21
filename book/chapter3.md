@@ -176,7 +176,14 @@ Linux 91b9e178ca14 4.8.0-49-generic #52~16.04.1-Ubuntu SMP Thu Apr 20 10:55:59 U
 `sudo docker build -t "weipeng2k/daemon_echo" .`构建一个`daemon_echo`。这个容器编译了一个`Test.java`，并运行它，它每隔一秒打印一次`hello, world.`。
 
 ```java
-
+public class Test {
+	public static void main(String[] args) throws Exception {
+		while(true) {
+			System.out.println("hello world.");
+			Thread.sleep(1000);
+		}
+	}
+}
 ```
 
 `sudo docker run -name daemon_echo -d weipeng2k/daemon_echo`，以daemon形式在后台运行，如果没有`-d`，将会在前台运行。
